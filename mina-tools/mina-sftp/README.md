@@ -12,4 +12,10 @@ Start the Local Sftp Server:
 Verify the Sftp Server from commandline
 ----------------------------------------
 
-    sftp -P 3000 meng@localhost
+  using UNIX cmd line tool sftp
+
+       sftp -P 3000 meng@localhost
+
+  using python paramiko sftp client
+
+       python sftp_client.py
