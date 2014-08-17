@@ -101,3 +101,18 @@ ____________________________________________________________________________
 a python scripts, tcpclient.py is also included.
 
     python tcpclient.py -hn localhost -p <your port> -f <Your file path>
+
+
+####5.2 Mina SFTP Server
+
+A Local SFTP Server using Apache SSHD.
+
+
+
+Build And Usage
+----------------
+
+You can build as independent maven projects
+
+    mvn install
+

@@ -12,6 +12,7 @@
 
     <modules>
         <module>mina-tcp</module>
+        <module>mina-sftp</module>
 
     </modules>
 

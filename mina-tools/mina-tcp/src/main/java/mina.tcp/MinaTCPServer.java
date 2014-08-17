@@ -20,6 +20,8 @@ public class MinaTCPServer {
 
     private int port;
 
+    private IoAcceptor acceptor;
+
     public MinaTCPServer(int port) throws Exception{
         this.port = port;
         this.start();
@@ -28,7 +30,7 @@ public class MinaTCPServer {
     public void start() throws Exception{
 
         //create an acceptor
-        IoAcceptor acceptor = new NioSocketAcceptor();
+        acceptor = new NioSocketAcceptor();
 
         //If more complicated logic are required, please enable the Protocol Filter
         //acceptor.getFilterChain().addLast("codec", new ProtocolCodecFilter(new CustomProtocolCodecFactory()));
@@ -49,6 +51,10 @@ public class MinaTCPServer {
             Thread.sleep(10000);
         }*/
 
+    }
+
+    public void stop(){
+        acceptor.dispose();
     }
 
     private class MinaTCPServerHandler extends IoHandlerAdapter {

@@ -111,8 +111,14 @@ public class MinaTCPClient {
         Params params = new Params();
         try {
             CommandLine commandLine = new BasicParser().parse(options, args);
-            params.port = Integer.valueOf(commandLine.getOptionValue("p"));
-            params.hostname = commandLine.getOptionValue("hn");
+            if(commandLine.hasOption("p")){
+                params.port = Integer.valueOf(commandLine.getOptionValue("p"));
+            }
+
+            if(commandLine.hasOption("hn")){
+                params.hostname = commandLine.getOptionValue("hn");
+            }
+
             params.filename = commandLine.getOptionValue("f");
         } catch (Exception e) {
             e.printStackTrace();
