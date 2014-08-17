@@ -11,17 +11,9 @@
     <modules>
         <module>mina-tools</module>
         <module>batch-engine</module>
-        <module>file-watchers</module>
-        <module>forkjoin</module>
-        <module>jocket</module>
-        <module>mq-file-sender</module>
-        <module>mqrouter</module>
-        <module>named-pipes</module>
-        <module>rmi-perf</module>
-        <module>semaphore</module>
-        <module>socket</module>
-        <module>thread-locals</module>
-        <module>zero-mq</module>
+        <module>ipc-tools</module>
+        <module>multi-threading</module>
+        <module>integration-tools</module>
     </modules>
 
     <build>
