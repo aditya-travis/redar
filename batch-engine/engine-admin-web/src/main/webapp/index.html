@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quartz Monitoring</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app/css/lib/bootstrap-3.1.1.min.css"/>
+  <link rel="stylesheet" href="app/css/app.css"/>
+</head>
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <header class="navbar navbar-static-top" id="top" role="banner">
+      <div class="container">
+          <div class="navbar-header">
+              <a href="" class="navbar-brand">QuartzAdmin</a>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+              <ul class="nav navbar-nav">
+                  <li>
+                      <a href="#/job-admin">Job Admin</a>
+                  </li>
+                  <li>
+                      <a href="#/job-history">Job History</a>
+                  </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                  <li><a href="">Meng</a></li>
+                  <li><a href="">Logout</a></li>
+              </ul>
+          </nav>
+      </div>
+  </header>
+
+  <div class="container">
+      <div ng-view></div>
+  </div>
+
+  <footer class="" role="contentinfo">
+      <div class="container">
+          
+      </div>
+  </footer>
+
+  <script src="app/js/lib/jquery-2.0.2.js"></script>
+  <script src="app/js/lib/bootstrap-3.1.1.min.js"></script>
+  <script src="app/js/lib/angular-1.2.3.js"></script>
+  <script src="app/js/lib/angular-cookies-1.2.3.js"></script>
+  <script src="app/js/lib/angular-resource-1.2.3.js"></script>
+  <script src="app/js/lib/angular-route-1.2.3.js"></script>
+
+  <script src="app/js/app.js"></script>
+  <script src="app/js/services.js"></script>
+  <script src="app/js/controllers.js"></script>
+  <script src="app/js/filters.js"></script>
+  <script src="app/js/directives.js"></script>
+</body>
+</html>

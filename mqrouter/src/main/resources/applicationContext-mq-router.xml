@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+       xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd
+		http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+
+    <int:channel id="incommingMsgChannel"/>
+    <int:channel id="zenChannel"/>
+    <int:channel id="mmsChannel"/>
+    <int:channel id="accoChannel"/>
+
+    <int-jms:inbound-channel-adapter destination-name="REMOTEQUEUE" connection-factory="connectionFactory" channel="incommingMsgChannel"/>
+    <int-jms:outbound-channel-adapter destination-name="ZEN" connection-factory="connectionFactory" channel="zenChannel"/>
+    <int-jms:outbound-channel-adapter destination-name="MMS" connection-factory="connectionFactory" channel="mmsChannel"/>
+    <int-jms:outbound-channel-adapter destination-name="ACCO" connection-factory="connectionFactory" channel="accoChannel"/>
+
+    <int:router input-channel="incommingMsgChannel">
+        <bean class="org.zths.samples.router.ContentBasedRouter">
+            <property name="channelMappings">
+                <map>
+                    <entry key="ZEN" value="zenChannel"/>
+                    <entry key="MMS" value="mmsChannel"/>
+                    <entry key="ACCO" value="accoChannel"/>
+                </map>
+            </property>
+        </bean>
+    </int:router>
+
+    <int:poller default="true" fixed-rate="3" task-executor="taskExecutor"/>
+    <task:executor id="taskExecutor" pool-size="20" queue-capacity="500" rejection-policy="CALLER_RUNS"/>
+</beans>

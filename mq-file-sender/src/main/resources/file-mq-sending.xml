@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-file="http://www.springframework.org/schema/integration/file"
+       xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+		http://www.springframework.org/schema/integration/jms http://www.springframework.org/schema/integration/jms/spring-integration-jms.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <bean id="activeMQConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+
+    <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="reconnectOnException" value="true"/>
+        <property name="targetConnectionFactory" ref="activeMQConnectionFactory"/>
+
+    </bean>
+
+    <int:channel id="fileCreationChannel"/>
+
+    <int-file:outbound-channel-adapter directory="/apps/redar/dir/" channel="fileCreationChannel"
+                                       filename-generator="filenameGenerator" temporary-file-suffix=".tmp"
+                                       />
+
+    <bean id="filenameGenerator" class="filemonitor.CustomFilenameGenerator"/>
+    <bean id="fileFilter" class="filemonitor.CustomFileFilter"/>
+
+    <bean id="fileMQSender" class="filemonitor.JMSBasedFileMQSender">
+        <constructor-arg ref="fileCreationChannel"/>
+    </bean>
+
+
+    <int:channel id="fileProcessingChannel"/>
+
+    <int-file:inbound-channel-adapter directory="/apps/redar/dir/" channel="fileProcessingChannel"
+                                      filter="fileFilter"  prevent-duplicates="true"/>
+
+    <int:service-activator ref="fileProcessor" method="process" input-channel="fileProcessingChannel"/>
+
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="connectionFactory"/>
+        <property name="defaultDestinationName" value="FILE.OUT"/>
+    </bean>
+
+    <bean id="fileProcessor" class="filemonitor.JMSbasedFileProcessor">
+        <constructor-arg ref="jmsTemplate"/>
+    </bean>
+
+    <int:poller default="true" fixed-rate="3" task-executor="taskExecutor"/>
+    <task:executor id="taskExecutor" pool-size="20" queue-capacity="500" rejection-policy="CALLER_RUNS"/>
+</beans>
