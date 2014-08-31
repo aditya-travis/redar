@@ -113,6 +113,16 @@ a python scripts, tcpclient.py is also included.
 A Local SFTP Server using Apache SSHD.
 
 
+###6. Design Pattern Example
+
+This project covers:
+    * Singleton Pattern
+    * Factory Pattern
+    * Command Pattern
+    * Intepreter Pattern
+    * Observer Pattern
+    * Proxy Pattern
+
 
 Build And Usage
 ----------------

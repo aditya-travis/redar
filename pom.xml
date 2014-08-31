@@ -14,6 +14,7 @@
         <module>ipc-tools</module>
         <module>multi-threading</module>
         <module>integration-tools</module>
+        <module>design-patterns</module>
     </modules>
 
     <build>
