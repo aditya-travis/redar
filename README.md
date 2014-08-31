@@ -20,6 +20,11 @@ This module is to test about the Fork And Join
 
 This module is to illustrate the use of  Semaphore based pass manager running in RMI to control the syncronziation among multiple JVMs.
 
+####1.4 Blocking Queue based Publisher-Topic Borker-Subcriber Pattern for Order Management System
+
+This module is to implement a high through-put Order Management System. Blocking Queue based Publisher - Broker - Subscriber pattern is used.
+
+Each order is sent to a Topic whose id is the Order Id.
 
 _____________________________________________________________
 
