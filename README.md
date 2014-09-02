@@ -126,6 +126,7 @@ This project covers:
     * Proxy Pattern
     * Adapter Pattern
     * Vistor Pattern
+    * Producer-Consumer Pattern ( PriorityBlockingQueue is used)
 
 Build And Usage
 ----------------

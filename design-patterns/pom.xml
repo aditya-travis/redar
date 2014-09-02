@@ -17,6 +17,7 @@
         <module>proxy</module>
         <module>adapter</module>
         <module>vistor</module>
+        <module>publisher-consumer</module>
     </modules>
 
 
