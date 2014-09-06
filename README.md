@@ -127,6 +127,7 @@ This project covers:
     * Adapter Pattern
     * Vistor Pattern
     * Producer-Consumer Pattern ( PriorityBlockingQueue is used)
+    * Chain-of-Responsibility Pattern
 
 Build And Usage
 ----------------

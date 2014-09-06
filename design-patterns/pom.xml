@@ -17,7 +17,8 @@
         <module>proxy</module>
         <module>adapter</module>
         <module>vistor</module>
-        <module>publisher-consumer</module>
+        <module>producer-consumer</module>
+        <module>chain-of-responsibility</module>
     </modules>
 
 
