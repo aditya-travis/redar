@@ -1,6 +1,5 @@
-package design.patterns.vistor;
+package design.patterns.visitor;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -11,7 +10,7 @@ public class ShoppingCart {
 
     private List<Visitable> shopItems = new CopyOnWriteArrayList<Visitable>();
 
-    private PostageVistor postageVisitor = new PostageVistor();
+    private PostageVisitor postageVisitor = new PostageVisitor();
 
     public ShoppingCart addItem(Visitable item){
         shopItems.add(item);

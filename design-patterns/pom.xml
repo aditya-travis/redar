@@ -16,7 +16,7 @@
         <module>observer</module>
         <module>proxy</module>
         <module>adapter</module>
-        <module>vistor</module>
+        <module>visitor</module>
         <module>producer-consumer</module>
         <module>chain-of-responsibility</module>
     </modules>

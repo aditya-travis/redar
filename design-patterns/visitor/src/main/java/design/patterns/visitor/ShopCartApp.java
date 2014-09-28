@@ -1,4 +1,4 @@
-package design.patterns.vistor;
+package design.patterns.visitor;
 
 /**
  * Created by Feng on 1/9/14.

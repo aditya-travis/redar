@@ -1,9 +1,9 @@
-package design.patterns.vistor;
+package design.patterns.visitor;
 
 /**
  * Created by Feng on 1/9/14.
  */
 public interface Visitable {
 
-    void accept(Vistor vistor);
+    void accept(Visitor visitor);
 }

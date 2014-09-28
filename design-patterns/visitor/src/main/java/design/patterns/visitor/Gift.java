@@ -1,4 +1,4 @@
-package design.patterns.vistor;
+package design.patterns.visitor;
 
 /**
  * Created by Feng on 1/9/14.
@@ -6,8 +6,8 @@ package design.patterns.vistor;
 public class Gift implements Visitable {
     private double netPrice = 20;
     @Override
-    public void accept(Vistor vistor) {
-        vistor.visit(this);
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
     public double getNetPrice() {
