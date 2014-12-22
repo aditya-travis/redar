@@ -79,6 +79,18 @@
         <custom_task/>
     </target>
 
+    <target name="custom_adapter_task" description="This is a custom ant task" depends="jar">
+        <taskdef name="custom_adapter_task" classname="build.ant.task.CustomAdapterTask" classpath="${jar.dir}/${ant.project.name}.jar"/>
+        <custom_adapter_task/>
+    </target>
+
+    <target name="custom_echo_task" description="This is a custom ant task" depends="jar">
+        <taskdef name="custom_echo_task" classname="build.ant.task.CustomEchoTask" classpath="${jar.dir}/${ant.project.name}.jar"/>
+        <custom_echo_task message="This is an custom echo message"/>
+        <custom_echo_task>This is an Nested text inside custom_echo_task tag</custom_echo_task>
+        <custom_echo_task>${ant.project.name}</custom_echo_task>
+    </target>
+
 
     <target name="clean-build" depends="clean, jar"/>
     <target name="main" depends="clean, run"/>
