@@ -136,3 +136,21 @@ You can build as independent maven projects
 
     mvn install
 
+
+-------------------------------------------------------------------------
+###7. Java Project Build Tools
+
+This project serves as study material for various build tools for java projects.
+
+It covers:
+
+     * Apache Ant build
+
+Build And Usage
+----------------
+
+You can just run the build tool inside each sub-projects
+
+    ant
+    ant junit junitreport
+
