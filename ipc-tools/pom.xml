@@ -11,7 +11,7 @@
     <modules>
         <module>zero-mq</module>
         <module>socket</module>
-        <module>jocket</module>
+        <!--<module>jocket</module>-->
         <module>named-pipes</module>
         <module>rmi-perf</module>
     </modules>
