@@ -129,13 +129,6 @@ This project covers:
     * Producer-Consumer Pattern ( PriorityBlockingQueue is used)
     * Chain-of-Responsibility Pattern
 
-Build And Usage
-----------------
-
-You can build as independent maven projects
-
-    mvn install
-
 
 -------------------------------------------------------------------------
 ###7. Java Project Build Tools
@@ -146,11 +139,18 @@ It covers:
 
      * Apache Ant build
 
-Build And Usage
-----------------
+
+####7.1 Ant as a building tool
 
 You can just run the build tool inside each sub-projects
 
     ant
     ant junit junitreport
 
+
+Build And Usage
+----------------
+
+You can build as independent maven projects
+
+    mvn install
