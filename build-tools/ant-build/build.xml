@@ -74,6 +74,11 @@
         </junitreport>
     </target>
 
+    <target name="custom_task" description="This is a custom ant task" depends="jar">
+        <taskdef name="custom_task" classname="build.ant.task.CustomTask" classpath="${jar.dir}/${ant.project.name}.jar"/>
+        <custom_task/>
+    </target>
+
 
     <target name="clean-build" depends="clean, jar"/>
     <target name="main" depends="clean, run"/>
