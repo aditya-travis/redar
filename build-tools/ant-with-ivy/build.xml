@@ -1,0 +1,106 @@
+<project name="ant-with-ivy" default="main" xmlns:ivy="antlib:org.apache.ivy.ant">
+    <target name="retrieve" description="Resolve and Retrieve with ivy">
+        <ivy:retrieve sync="true" type="jar" />
+    </target>
+
+    <target name="install" description="--> install modules to localreporsitory">
+        <property name="ivy.local.default.ivy.pattern"
+                  value="[organisation]/[module]/ivys/ivy-[revision].xml" />
+        <property name="ivy.local.default.artifact.pattern"
+                  value="[organisation]/[module]/[type]s/[artifact]-[revision].[ext]" />
+
+        <ivy:install organisation="commons-lang" module="commons-lang"
+                     revision="2.6" transitive="true" overwrite="false"
+                     from="public" to="shared" />
+    </target>
+
+    <target name="clean-cache" description="--> clean the cache">
+        <ivy:cleancache />
+    </target>
+
+    <target name="publish" description="Publish this build into repository">
+        <ivy:resolve/>
+        <ivy:publish pubrevision="1.0" status="release" resolver="local" overwrite="true" >
+            <artifacts pattern="target/[artifact].[ext]"/>
+        </ivy:publish>
+    </target>
+
+    <property name="src.dir" value="src/main/java"/>
+    <property name="resources.dir" value="src/main/resources"/>
+    <property name="test.src.dir" value="src/test/java"/>
+    <property name="test.resources.dir" value="src/test/resources"/>
+
+    <property name="build.dir" value="target"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir" value="${build.dir}"/>
+    <property name="lib.dir" value="lib"/>
+
+    <property name="report.dir"  value="${build.dir}/report"/>
+
+
+    <property name="main-class" value="build.ivy.HelloWorld"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    </path>
+
+    <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${lib.dir}"/>
+    </target>
+
+    <target name="compile" depends="retrieve">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="src" destdir="${classes.dir}" classpathref="classpath"/>
+        <copy todir="${classes.dir}">
+            <fileset dir="${resources.dir}" includes="*"/>
+        </copy>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java fork="true" classname="${main-class}">
+            <classpath>
+                <path refid="classpath"/>
+                <path refid="application"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="junit" depends="jar">
+        <mkdir dir="${report.dir}"/>
+        <junit printsummary="yes" logfailedtests="yes" >
+            <classpath>
+                <path refid="classpath"/>
+                <path refid="application"/>
+            </classpath>
+
+            <formatter type="xml"/>
+
+            <batchtest fork="yes" todir="${report.dir}">
+                <fileset dir="${test.src.dir}" includes="**/*.java"/>
+            </batchtest>
+
+        </junit>
+    </target>
+
+    <target name="junitreport">
+        <junitreport todir="${report.dir}">
+            <fileset dir="${report.dir}" includes="TEST-*.xml"/>
+            <report todir="${report.dir}"/>
+        </junitreport>
+    </target>
+
+    <target name="clean-build" depends="clean, jar"/>
+    <target name="main" depends="clean, run"/>
+</project>
