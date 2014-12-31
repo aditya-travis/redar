@@ -138,6 +138,7 @@ This project serves as study material for various build tools for java projects.
 It covers:
 
      * Apache Ant build
+     * Apahce Ant with Ivy as dependency management
 
 
 ####7.1 Ant as a building tool
@@ -146,6 +147,12 @@ You can just run the build tool inside each sub-projects
 
     ant
     ant junit junitreport
+
+####7.2 Ant with Ivy
+
+You can just run the build tool inside each sub-projects
+
+    ant install main
 
 
 Build And Usage
