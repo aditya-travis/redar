@@ -16,6 +16,7 @@
         <module>integration-tools</module>
         <module>design-patterns</module>
         <module>build-tools</module>
+        <module>spring-guides</module>
     </modules>
 
     <build>
