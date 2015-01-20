@@ -161,3 +161,8 @@ Build And Usage
 You can build as independent maven projects
 
     mvn install
+
+
+###8. Spring Guides
+
+This project is used as a demo and quick try for Spring related projects.

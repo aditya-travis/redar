@@ -20,6 +20,7 @@
         <module>uploading-files</module>
         <module>authenticating-ldap</module>
         <module>messaging-redis</module>
+        <module>message-rabbitmq</module>
     </modules>
 
     <build>
