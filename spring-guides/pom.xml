@@ -19,6 +19,7 @@
         <module>data-access</module>
         <module>uploading-files</module>
         <module>authenticating-ldap</module>
+        <module>messaging-redis</module>
     </modules>
 
     <build>
