@@ -23,6 +23,7 @@
         <module>messaging-rabbitmq</module>
         <module>validating-form-input</module>
         <module>messaging-jms</module>
+        <module>batch-processing</module>
     </modules>
 
     <build>
