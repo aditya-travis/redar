@@ -22,6 +22,7 @@
         <module>messaging-redis</module>
         <module>messaging-rabbitmq</module>
         <module>validating-form-input</module>
+        <module>messaging-jms</module>
     </modules>
 
     <build>
