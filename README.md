@@ -166,3 +166,15 @@ You can build as independent maven projects
 ###8. Spring Guides
 
 This project is used as a demo and quick try for Spring related projects.
+
+    - Authenticating-LDAP with Spring Security
+    - Consuming-Rest with Spring RestTemplate
+    - Data Access with Spring JdbcTemplate
+    - Device-Dectection with Spring Mobile MVC
+    - Messaging-JMS with Spring JmsTemplate
+    - Messaging-Rabbitmq with Spring amqpTemplate
+    - Messaging-Redis with redisTemplate
+    - Rest-Service with Spring MVC Rest Controller
+    - Scheduling-task with Schedule annotation. @Schedule annotation supports Cron for simple scheduling
+    - Upload-File. Using Spring Multipart support to upload files.
+    - Validating-form-input. using spring @Valid annotation and Hibernate validator.
