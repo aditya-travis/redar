@@ -177,5 +177,6 @@ This project is used as a demo and quick try for Spring related projects.
 * Messaging-Redis with redisTemplate
 * Rest-Service with Spring MVC Rest Controller
 * Scheduling-task with Schedule annotation. @Schedule annotation supports Cron for simple scheduling
+* Securing Web with Spring Security
 * Upload-File. Using Spring Multipart support to upload files.
 * Validating-form-input. using spring @Valid annotation and Hibernate validator.

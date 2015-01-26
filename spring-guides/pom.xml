@@ -24,6 +24,7 @@
         <module>validating-form-input</module>
         <module>messaging-jms</module>
         <module>batch-processing</module>
+        <module>securing-web</module>
     </modules>
 
     <build>
