@@ -25,6 +25,7 @@
         <module>messaging-jms</module>
         <module>batch-processing</module>
         <module>securing-web</module>
+        <module>rest-hateoas</module>
     </modules>
 
     <build>
