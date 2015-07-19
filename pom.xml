@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>mina-tools</module>
         <module>batch-engine</module>
         <module>ipc-tools</module>
         <module>multi-threading</module>

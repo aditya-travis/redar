@@ -2,6 +2,11 @@ Project Redar
 ==============
 Project Redar is a personal project for practicing, proof of concept of my ideas of solution for some real problems.
 
+Continious Integration
+----------------------
+
+Travis-CI: [https://travis-ci.org/mengfeng/redar](https://travis-ci.org/mengfeng/redar)
+
 Modules
 --------
 
@@ -48,7 +53,22 @@ comparision between Apache Commons-IO based FileAlterationMonitor and JDK7 provi
 
 **Conclusion:** File WatcherService in JDK provides more accurate Event monitoring.
 
+####2.4. Java Apache Mina based Networking Tools
 
+#####2.4.1 Mina TCP Server and Client
+
+a python scripts, tcpclient.py is also included.
+
+    python tcpclient.py -hn localhost -p <your port> -f <Your file path>
+
+
+#####2.4.2 Mina SFTP Server
+
+A Local SFTP Server using Apache SSHD.
+
+####2.5 Jetty Http Embedded Server
+
+Use Jetty as an embedded http server
 ____________________________________________________________________________
 
 
@@ -98,21 +118,6 @@ mvn install tomcat7:run
 [http://localhost:8080/jobs/history](http://localhost:8080/jobs/history)
 
 ____________________________________________________________________________
-
-###5. Java Apache Mina based Networking Tools
-
-####5.1 Mina TCP Server and Client
-
-a python scripts, tcpclient.py is also included.
-
-    python tcpclient.py -hn localhost -p <your port> -f <Your file path>
-
-
-####5.2 Mina SFTP Server
-
-A Local SFTP Server using Apache SSHD.
-
-__________________________________________________________________________
 
 ###6. Design Pattern Example
 

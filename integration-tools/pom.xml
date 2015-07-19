@@ -13,5 +13,7 @@
         <module>mqrouter</module>
         <module>mq-file-sender</module>
         <module>file-watchers</module>
+        <module>mina-tools</module>
+        <module>jetty-http</module>
     </modules>
 </project>

@@ -21,7 +21,7 @@
         <sl4j.version>1.6.1</sl4j.version>
         <h2.version>1.4.178</h2.version>
         <spring-mybatis.version>1.0.1</spring-mybatis.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.12</junit.version>
         <jackson.version>2.3.2</jackson.version>
     </properties>
 

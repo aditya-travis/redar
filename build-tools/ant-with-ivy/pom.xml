@@ -12,7 +12,7 @@
     <artifactId>ant-wity-ivy</artifactId>
 
     <properties>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
         <ant.version>1.9.4</ant.version>
         <common-lang.version>2.6</common-lang.version>
